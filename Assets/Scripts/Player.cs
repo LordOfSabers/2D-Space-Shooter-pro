@@ -15,23 +15,20 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {       
-        
-        if(transform.position.y >= 1.5f)
-        {
-            transform.position = new Vector3(transform.position.x, 1.5f, 0);
-        }
-        else if(transform.position.y <= -4.4f)
-        {
-            transform.position = new Vector3(transform.position.x, -4.4f, 0);
-        }
+    {
+        Calculatemovment();
+    }
 
+    void Calculatemovment()
+    {
 
-        if(transform.position.x >= 12f)
+        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -4.4f, 1.5f), 0);
+
+        if (transform.position.x >= 12f)
         {
             transform.position = new Vector3(-11.9f, transform.position.y, 0);
         }
-        else if(transform.position.x <= -12f)
+        else if (transform.position.x <= -12f)
         {
             transform.position = new Vector3(11.9f, transform.position.y, 0);
         }
