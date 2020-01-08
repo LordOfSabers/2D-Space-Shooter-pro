@@ -15,13 +15,8 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        //get left and right key press
-        float _Horizontal = Input.GetAxis("Horizontal");
-        //get up and down key press
-        float _Vertical = Input.GetAxis("Vertical");
-        //move player at _speed * time.deltatime
-        transform.Translate(new Vector3(_Horizontal, _Vertical, 0) * _speed * Time.deltaTime);
+    {       
+        transform.Translate(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * _speed * Time.deltaTime);
 
 
 
