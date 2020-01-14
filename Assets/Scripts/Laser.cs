@@ -21,16 +21,16 @@ public class Laser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.y >= 15)
-        {
-            Destroy(gameObject);
-        }
-
-        Movementcontroller();
+         Movementcontroller();
     }
     void Movementcontroller()
     {
         float lazerboost = _playerPositionY + _lazeroffsetdistance;
+
+        if (transform.position.y >= 15)
+        {
+            Destroy(gameObject);
+        }
 
         if (transform.position.y >= lazerboost && _speed != 15)
         {
@@ -38,6 +38,8 @@ public class Laser : MonoBehaviour
         }
 
         transform.Translate(Vector3.up * _speed * Time.deltaTime);
+        
+
     }
 }
 
