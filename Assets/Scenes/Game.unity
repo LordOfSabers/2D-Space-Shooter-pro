@@ -323,6 +323,9 @@ MonoBehaviour:
   _speed: 4
   _laserPrefab: {fileID: 8496806588152612784, guid: b6b760d44b01e4b4bb6afc3d67c34d76,
     type: 3}
+  _laserOffset: 1.2
+  _reloadTime: 1.5
+  _ammoCount: 6
 --- !u!1 &1639244251
 GameObject:
   m_ObjectHideFlags: 0
