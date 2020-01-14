@@ -21,6 +21,11 @@ public class Laser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(transform.position.y >= 15)
+        {
+            Destroy(gameObject);
+        }
+
         Movementcontroller();
     }
     void Movementcontroller()
