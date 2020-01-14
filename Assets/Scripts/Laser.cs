@@ -27,12 +27,12 @@ public class Laser : MonoBehaviour
     {
         float lazerboost = _playerPositionY + _lazeroffsetdistance;
 
-        if (transform.position.y >= 15)
+        if (transform.position.y >= 15f)
         {
             Destroy(gameObject);
         }
 
-        if (transform.position.y >= lazerboost && _speed != 15)
+        if (transform.position.y >= lazerboost && _speed != 12.0f)
         {
             _speed = 12.0f;
         }
