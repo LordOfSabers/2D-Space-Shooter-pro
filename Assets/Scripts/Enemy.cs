@@ -17,12 +17,36 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     
+
         transform.Translate(Vector3.down * _speed * Time.deltaTime);
 
         if(transform.position.y <= -11.75f)
         {
             transform.position = new Vector3(Random.Range(-19.5f, 19.5f), Random.Range(12.75f, 19.0f), 0);
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //if other is laser
+        //destroy laser
+        //destroy this.gameobject
+        if(other.tag == "Laser")
+        {
+            Destroy(other.gameObject);
+            Destroy(this.gameObject);
+        }
+        else if(other.tag == "Player")
+        {
+            //other.gameObject.GetComponent();
+            //lives--
+
+
+            Debug.Log("got'cha");
+            //destroy this.gameobject
+            Destroy(this.gameObject);
+        }
+
+       
     }
 }
