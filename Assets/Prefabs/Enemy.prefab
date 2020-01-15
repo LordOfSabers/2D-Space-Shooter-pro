@@ -108,6 +108,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 4
+  _spawnManager: {fileID: 171566606684662054, guid: 1696fba467e5c7f43887dbda69dd0948,
+    type: 3}
 --- !u!54 &2411464302718516424
 Rigidbody:
   m_ObjectHideFlags: 0

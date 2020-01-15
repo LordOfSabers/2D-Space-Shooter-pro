@@ -1,17 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Enemy : MonoBehaviour
 {
 
     [SerializeField]
     private float _speed = 4;
+    [SerializeField]
+    private GameObject _spawnManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+      
     }
 
     // Update is called once per frame
@@ -27,20 +30,27 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        
         if(other.tag == "Laser")
         {
+            var hit = _spawnManager.transform.GetComponent<SpawnManager>();
             Destroy(other.gameObject);
+            hit.Shot();
             Destroy(this.gameObject);
         }
         else if(other.tag == "Player")
         {
-            Player player = other.transform.GetComponent<Player>();
-
-            if(player != null)
-            {
-                player.Damage();
-            }
             
+            Player player = other.transform.GetComponent<Player>();
+            var hit = _spawnManager.transform.GetComponent<SpawnManager>();
+            hit.Shot();
+
+            if (player != null)
+            {
+                player.Damage();       
+            }
+
+
             Destroy(this.gameObject);
         }   
     }
