@@ -17,7 +17,6 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         transform.Translate(Vector3.down * _speed * Time.deltaTime);
 
         if(transform.position.y <= -11.75f)
@@ -28,9 +27,6 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //if other is laser
-        //destroy laser
-        //destroy this.gameobject
         if(other.tag == "Laser")
         {
             Destroy(other.gameObject);
@@ -38,15 +34,14 @@ public class Enemy : MonoBehaviour
         }
         else if(other.tag == "Player")
         {
-            //other.gameObject.GetComponent();
-            //lives--
+            Player player = other.transform.GetComponent<Player>();
 
-
-            Debug.Log("got'cha");
-            //destroy this.gameobject
+            if(player != null)
+            {
+                player.Damage();
+            }
+            
             Destroy(this.gameObject);
-        }
-
-       
+        }   
     }
 }
