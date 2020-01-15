@@ -16,25 +16,9 @@ public class SpawnManager : MonoBehaviour
     {
         StartCoroutine(SpawnRoutine());
     }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
-        
-    }
-
-    //spawn game objects every 4 to 9 seconds
-    //create coroutine of type IRnumerator -- Yield Events
     
     IEnumerator SpawnRoutine()
     {
-        
-        //while (_enemies < 15)
-            //instantiate Enemy Prefab
-            //Yield wait for 4 to 9 seconds
-            //add 1 to _enemies
         while(_stopSpawning == false)
         {
             float _randomX = Random.Range(-19.5f, 19.5f);
