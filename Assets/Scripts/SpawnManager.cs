@@ -9,6 +9,7 @@ public class SpawnManager : MonoBehaviour
     private GameObject _enemyPrefab;
     [SerializeField]
     private GameObject _enemyContainer;
+    private bool _stopSpawning = false;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +35,7 @@ public class SpawnManager : MonoBehaviour
             //instantiate Enemy Prefab
             //Yield wait for 4 to 9 seconds
             //add 1 to _enemies
-        while(true)
+        while(_stopSpawning == false)
         {
             float _randomX = Random.Range(-19.5f, 19.5f);
             float _randomwait = Random.Range(1.0f, 5.0f);
@@ -45,5 +46,8 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-
+    public void OnPlayerDeath()
+    {
+        _stopSpawning = true;
+    }
 }

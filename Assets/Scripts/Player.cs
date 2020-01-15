@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     private float _reloadTime = 1.5f;
     [SerializeField]
     private int _ammoCount = 4;
+    private SpawnManager _spawnManager;
     private float _canfire = -1f;
 
 
@@ -24,6 +25,12 @@ public class Player : MonoBehaviour
     void Start()
     {
         transform.position = new Vector3(0, -2, 0);
+        _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
+
+        if(_spawnManager == null)
+        {
+            Debug.LogError("The Spawn Manager is NULL.");
+        }
     }
 
     // Update is called once per frame
@@ -73,7 +80,9 @@ public class Player : MonoBehaviour
         _lives--;
         if(_lives < 1)
         {
+            _spawnManager.OnPlayerDeath();
             Destroy(this.gameObject);
+           
         }  
     }
 }
