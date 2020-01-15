@@ -33,17 +33,13 @@ public class Enemy : MonoBehaviour
         
         if(other.tag == "Laser")
         {
-            var hit = _spawnManager.transform.GetComponent<SpawnManager>();
             Destroy(other.gameObject);
-            hit.Shot();
             Destroy(this.gameObject);
         }
         else if(other.tag == "Player")
         {
             
             Player player = other.transform.GetComponent<Player>();
-            var hit = _spawnManager.transform.GetComponent<SpawnManager>();
-            hit.Shot();
 
             if (player != null)
             {

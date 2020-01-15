@@ -6,8 +6,6 @@ public class SpawnManager : MonoBehaviour
 {
 
     [SerializeField]
-    private int _enemies = 0;
-    [SerializeField]
     private GameObject _enemyPrefab;
     [SerializeField]
     private GameObject _enemyContainer;
@@ -18,10 +16,7 @@ public class SpawnManager : MonoBehaviour
         StartCoroutine(SpawnRoutine());
     }
 
-    public void Shot()
-    {
-        _enemies--;
-    }
+
     // Update is called once per frame
     void Update()
     {
@@ -39,18 +34,15 @@ public class SpawnManager : MonoBehaviour
             //instantiate Enemy Prefab
             //Yield wait for 4 to 9 seconds
             //add 1 to _enemies
-        while(_enemies < 50)
+        while(true)
         {
             float _randomX = Random.Range(-19.5f, 19.5f);
             float _randomwait = Random.Range(1.0f, 5.0f);
             GameObject newEnemy = Instantiate(_enemyPrefab, new Vector3(_randomX, 14.3f, 0), Quaternion.identity);
             newEnemy.transform.parent = _enemyContainer.transform;
-            _enemies++;
             yield return new WaitForSeconds(_randomwait);
             Debug.Log("New Foe Incoming");
         }
-
-        StartCoroutine(SpawnRoutine());
     }
 
 
