@@ -29,10 +29,15 @@ public class Laser : MonoBehaviour
 
         if (transform.position.y >= 15f)
         {
+           //check if object has parent
+           //destroy parent too!
+           if(transform.parent.gameObject != null)
+            {
+                Destroy(transform.parent.gameObject);
+            }
             Destroy(gameObject);
         }
-
-        if (transform.position.y >= lazerboost && _speed != 12.0f)
+        else if (transform.position.y >= lazerboost && _speed != 12.0f)
         {
             _speed = 12.0f;
         }

@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _laserPrefab;
     [SerializeField]
+    private GameObject _tripleShotPrefab;
+    [SerializeField]
     private float _laserOffset = 1.2f;
     [SerializeField]
     private float _reloadTime = 1.5f;
@@ -18,7 +20,9 @@ public class Player : MonoBehaviour
     private int _ammoCount = 4;
     private SpawnManager _spawnManager;
     private float _canfire = -1f;
-
+    [SerializeField]
+    private bool _isTripleShotActive = false;
+    
 
 
     // Start is called before the first frame update
@@ -42,7 +46,7 @@ public class Player : MonoBehaviour
         {
             FireLaser();
         }
- 
+
     }
 
     void Calculatemovment()
@@ -62,10 +66,31 @@ public class Player : MonoBehaviour
         transform.Translate(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * _speed * Time.deltaTime);
 
     }
+
+    private IEnumerator TripleShotPowerDownRoutine()
+    {
+        yield return new WaitForSeconds(7.5f);
+        _isTripleShotActive = false;
+         
+    }
+
     void FireLaser()
     {
-        _ammoCount--;
-        Instantiate(_laserPrefab, new Vector3(transform.position.x, transform.position.y + _laserOffset, 0), Quaternion.identity);
+      
+        
+
+        if(_isTripleShotActive == true)
+        {
+            _ammoCount--;
+            Instantiate(_tripleShotPrefab, new Vector3(transform.position.x, transform.position.y + _laserOffset, 0), Quaternion.identity);
+        }        
+        else if(_isTripleShotActive == false)
+        {
+            _ammoCount--;
+            Instantiate(_laserPrefab, new Vector3(transform.position.x, transform.position.y + _laserOffset, 0), Quaternion.identity);
+        }
+
+        
 
         if (_ammoCount <= 0)
         {
@@ -73,6 +98,15 @@ public class Player : MonoBehaviour
             _canfire = Time.time + _reloadTime;
         }
 
+
+
+    }
+
+    public void TripleSotActive()
+    {
+        _isTripleShotActive = true;
+
+        StartCoroutine(TripleShotPowerDownRoutine());
     }
 
     public void Damage()
