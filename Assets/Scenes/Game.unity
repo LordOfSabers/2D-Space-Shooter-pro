@@ -235,6 +235,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 1706667137927025902, guid: 81ac3f4ef09031b4392bd3ff05a871a5,
     type: 3}
+  _tripleShotPrefab: {fileID: 2462947191297137650, guid: 94f5aa12bb2c7cd42aecefa30f25a25a,
+    type: 3}
   _enemyContainer: {fileID: 2100510569}
 --- !u!4 &220179437
 Transform:
@@ -574,75 +576,6 @@ PolygonCollider2D:
       - {x: -1.48, y: -2}
       - {x: -0.9, y: -1.51}
       - {x: -0.81, y: -1.43}
---- !u!1001 &1120395029
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2462947191297137648, guid: 94f5aa12bb2c7cd42aecefa30f25a25a,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2462947191297137648, guid: 94f5aa12bb2c7cd42aecefa30f25a25a,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 15.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 2462947191297137648, guid: 94f5aa12bb2c7cd42aecefa30f25a25a,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2462947191297137648, guid: 94f5aa12bb2c7cd42aecefa30f25a25a,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2462947191297137648, guid: 94f5aa12bb2c7cd42aecefa30f25a25a,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2462947191297137648, guid: 94f5aa12bb2c7cd42aecefa30f25a25a,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2462947191297137648, guid: 94f5aa12bb2c7cd42aecefa30f25a25a,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2462947191297137648, guid: 94f5aa12bb2c7cd42aecefa30f25a25a,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2462947191297137648, guid: 94f5aa12bb2c7cd42aecefa30f25a25a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2462947191297137648, guid: 94f5aa12bb2c7cd42aecefa30f25a25a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2462947191297137648, guid: 94f5aa12bb2c7cd42aecefa30f25a25a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2462947191297137650, guid: 94f5aa12bb2c7cd42aecefa30f25a25a,
-        type: 3}
-      propertyPath: m_Name
-      value: Triple_Shot_Powerup
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 94f5aa12bb2c7cd42aecefa30f25a25a, type: 3}
 --- !u!1 &1639244251
 GameObject:
   m_ObjectHideFlags: 0
