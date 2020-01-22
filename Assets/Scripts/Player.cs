@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int _lives = 3;
     [SerializeField]
-    private float _speed = 4f;
+    private float _speed = 8.0f;
     [SerializeField]
     private GameObject _laserPrefab;
     [SerializeField]
@@ -107,6 +107,18 @@ public class Player : MonoBehaviour
         _isTripleShotActive = true;
 
         StartCoroutine(TripleShotPowerDownRoutine());
+    }
+
+    public void SpeedPowerActive()
+    {
+        StartCoroutine(SpeedPowerDownRoutine());
+    }
+
+    IEnumerator SpeedPowerDownRoutine()
+    {
+        _speed *= 2;
+        yield return new WaitForSeconds(6.0f);
+        _speed /= 2;
     }
 
     public void Damage()
