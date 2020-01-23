@@ -240,7 +240,7 @@ MonoBehaviour:
   _powerups:
   - {fileID: 2462947191297137650, guid: 94f5aa12bb2c7cd42aecefa30f25a25a, type: 3}
   - {fileID: 8871892571785288810, guid: 0eb2b05176f1a9146bb969b7a8155459, type: 3}
-  - {fileID: 0}
+  - {fileID: 2548466858993692476, guid: 66a7a4ae1cf5eaa4c8b9ad015f4577f5, type: 3}
   _enemyContainer: {fileID: 2100510569}
 --- !u!4 &220179437
 Transform:
