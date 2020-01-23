@@ -26,22 +26,27 @@ public class Laser : MonoBehaviour
     void Movementcontroller()
     {
         float lazerboost = _playerPositionY + _lazeroffsetdistance;
-
-        if (transform.position.y >= 15f)
+        transform.Translate(Vector3.up * _speed * Time.deltaTime);
+        
+        if (transform.position.y > 15.0f)
         {
        
-           if(transform.parent.gameObject != null)
-            {
-                Destroy(transform.parent.gameObject);
-            }
-            Destroy(gameObject);
+           if(transform.parent != null)
+           {
+                Destroy(transform.parent.gameObject);        
+           }
+           else
+           {
+                Destroy(this.gameObject);
+           }
+            
         }
         else if (transform.position.y >= lazerboost && _speed != 12.0f)
         {
             _speed = 12.0f;
         }
 
-        transform.Translate(Vector3.up * _speed * Time.deltaTime);
+        
         
 
     }
