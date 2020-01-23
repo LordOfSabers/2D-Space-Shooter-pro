@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     private float _canfire = -1f;
     [SerializeField]
     private bool _isTripleShotActive = false;
+    [SerializeField]
+    private bool _isShieldsActive = false;
     
 
 
@@ -121,8 +123,24 @@ public class Player : MonoBehaviour
         _speed /= 2;
     }
 
+    public void ActivateShields()
+    {
+        _isShieldsActive = true;
+    }
+
     public void Damage()
     {
+        //if shields are active
+        //do nothing...
+        //deactivate shields
+        //return;
+        if(_isShieldsActive == true)
+        {
+            _isShieldsActive = false;
+            return;
+        }
+
+        
         _lives--;
         if(_lives < 1)
         {

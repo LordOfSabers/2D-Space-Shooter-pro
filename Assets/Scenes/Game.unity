@@ -460,6 +460,7 @@ MonoBehaviour:
   _reloadTime: 1.5
   _ammoCount: 4
   _isTripleShotActive: 0
+  _isShieldsActive: 0
 --- !u!212 &403951795
 SpriteRenderer:
   m_ObjectHideFlags: 0
