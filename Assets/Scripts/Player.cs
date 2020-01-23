@@ -20,11 +20,11 @@ public class Player : MonoBehaviour
     private int _ammoCount = 4;
     private SpawnManager _spawnManager;
     private float _canfire = -1f;
-    [SerializeField]
     private bool _isTripleShotActive = false;
-    [SerializeField]
     private bool _isShieldsActive = false;
-    
+    //variable reference to shield visualizer
+    [SerializeField]
+    private GameObject _Shield;
 
 
     // Start is called before the first frame update
@@ -33,7 +33,8 @@ public class Player : MonoBehaviour
         transform.position = new Vector3(0, -2, 0);
         _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
 
-        if(_spawnManager == null)
+
+        if (_spawnManager == null)
         {
             Debug.LogError("The Spawn Manager is NULL.");
         }
@@ -125,18 +126,16 @@ public class Player : MonoBehaviour
 
     public void ActivateShields()
     {
+        _Shield.SetActive(true);
         _isShieldsActive = true;
     }
 
     public void Damage()
     {
-        //if shields are active
-        //do nothing...
-        //deactivate shields
-        //return;
         if(_isShieldsActive == true)
         {
             _isShieldsActive = false;
+            _Shield.SetActive(false);
             return;
         }
 
