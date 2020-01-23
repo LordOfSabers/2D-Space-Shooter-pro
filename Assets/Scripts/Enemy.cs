@@ -8,13 +8,14 @@ public class Enemy : MonoBehaviour
 
     [SerializeField]
     private float _speed = 4;
+
     [SerializeField]
-    private GameObject _spawnManager;
+    private UIManager _canvas;
 
     // Start is called before the first frame update
     void Start()
     {
-      
+        _canvas = GameObject.Find("Canvas").GetComponent<UIManager>();
     }
 
     // Update is called once per frame
@@ -34,6 +35,8 @@ public class Enemy : MonoBehaviour
         if(other.tag == "Laser")
         {
             Destroy(other.gameObject);
+            //call score function in UIManager
+            _canvas.ScoreUp();
             Destroy(this.gameObject);
         }
         else if(other.tag == "Player")

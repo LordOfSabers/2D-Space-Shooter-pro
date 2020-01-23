@@ -8,24 +8,32 @@ public class Player : MonoBehaviour
     private int _lives = 3;
     [SerializeField]
     private float _speed = 8.0f;
+   
     [SerializeField]
     private GameObject _laserPrefab;
     [SerializeField]
     private GameObject _tripleShotPrefab;
+    
     [SerializeField]
     private float _laserOffset = 1.2f;
     [SerializeField]
     private float _reloadTime = 1.5f;
     [SerializeField]
     private int _ammoCount = 4;
+    
     private SpawnManager _spawnManager;
+    
     private float _canfire = -1f;
+    
     private bool _isTripleShotActive = false;
     private bool _isShieldsActive = false;
-    //variable reference to shield visualizer
+    
+    
     [SerializeField]
     private GameObject _Shield;
 
+    [SerializeField]
+    private int _score;
 
     // Start is called before the first frame update
     void Start()
