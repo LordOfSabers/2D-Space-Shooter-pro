@@ -8,23 +8,21 @@ public class UIManager : MonoBehaviour
     //handle to text
     [SerializeField]
     private Text _scoreText;
-    [SerializeField]
-    private int _score = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-       
+        _scoreText.text = "Score: 000";
     }
 
     // Update is called once per frame
     void Update()
     {
-        _scoreText.text = "Score: " + _score;
+       
     }
 
-    public void ScoreUp()
+    public void UpdateScore(int score)
     {
-        _score = _score + 100;
+        _scoreText.text = "Score: " + score;
     }
-
 }

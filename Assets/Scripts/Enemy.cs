@@ -6,16 +6,17 @@ using UnityEngine.VFX;
 public class Enemy : MonoBehaviour
 {
 
+
     [SerializeField]
     private float _speed = 4;
 
     [SerializeField]
-    private UIManager _canvas;
+    private Player _playerScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        _canvas = GameObject.Find("Canvas").GetComponent<UIManager>();
+        _playerScript = GameObject.Find("Player").GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -34,9 +35,10 @@ public class Enemy : MonoBehaviour
         
         if(other.tag == "Laser")
         {
+            Debug.Log("Laser collsion detected");
             Destroy(other.gameObject);
-            //call score function in UIManager
-            _canvas.ScoreUp();
+            _playerScript.Scorecontroller(100);
+            
             Destroy(this.gameObject);
         }
         else if(other.tag == "Player")
