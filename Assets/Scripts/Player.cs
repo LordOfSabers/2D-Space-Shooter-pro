@@ -176,10 +176,10 @@ public class Player : MonoBehaviour
         }
 
         _lives--;//this variable tracks how may "lives" the player has.
-
+        _canvas.UpdateLivesUI(_lives);
 
         //this destroys the player and stops object spawning if the player runs out of lives
-        if (_lives < 0)
+        if (_lives < 1)
         {
             _spawnManager.OnPlayerDeath();
             Destroy(this.gameObject);
