@@ -13,10 +13,29 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private Player _playerScript;
 
+    private Animator _enemyDeathAnim;
+
     // Start is called before the first frame update
     void Start()
     {
         _playerScript = GameObject.Find("Player").GetComponent<Player>();
+        
+        
+        if(_playerScript == null)
+        {
+            Debug.LogError("Error Enemy::Player is NULL");
+        }
+        
+
+        _enemyDeathAnim = GetComponent<Animator>();
+       
+       
+        if(_enemyDeathAnim == null)
+        {
+            Debug.LogError("Error Enemy::Animator IS Null");
+        }
+        
+
     }
 
     // Update is called once per frame
@@ -37,8 +56,10 @@ public class Enemy : MonoBehaviour
         {          
             Destroy(other.gameObject);
             _playerScript.Scorecontroller(100);
-            
-            Destroy(this.gameObject);
+
+            _enemyDeathAnim.SetTrigger("OnEnemyDeath");
+
+            Destroy(this.gameObject, 2.35f);
         }
         else if(other.tag == "Player")
         {
@@ -50,8 +71,19 @@ public class Enemy : MonoBehaviour
                 player.Damage();       
             }
 
+            _enemyDeathAnim.SetTrigger("OnEnemyDeath");
 
-            Destroy(this.gameObject);
+            Destroy(this.gameObject,2.35f);
         }   
+    }
+
+    private IEnumerator Destroy()
+    {
+        while (true)
+        {
+            _enemyDeathAnim.SetTrigger("OnEnemyDeath");
+            yield return new WaitForSeconds(3);
+            
+        }
     }
 }
