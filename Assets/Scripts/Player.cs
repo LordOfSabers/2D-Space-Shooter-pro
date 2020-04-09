@@ -56,12 +56,6 @@ public class Player : MonoBehaviour
     {
         Calculatemovment();
 
-        /*
-        if(Input.GetKeyDown(KeyCode.Space) && Time.time > _canfire)
-        {
-            FireLaser();
-        }
-        */
         if(Input.GetAxis("Fire1") > 0.9f && Time.time > _canfireaxis && Time.time > _canfire)
         {
             FireLaser();
@@ -181,6 +175,7 @@ public class Player : MonoBehaviour
         //this destroys the player and stops object spawning if the player runs out of lives
         if (_lives < 1)
         {
+            _canvas.GameOverStart(_score);
             _spawnManager.OnPlayerDeath();
             Destroy(this.gameObject);
            

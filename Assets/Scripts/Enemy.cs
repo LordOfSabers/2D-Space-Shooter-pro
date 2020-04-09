@@ -34,8 +34,7 @@ public class Enemy : MonoBehaviour
     {
         
         if(other.tag == "Laser")
-        {
-            Debug.Log("Laser collsion detected");
+        {          
             Destroy(other.gameObject);
             _playerScript.Scorecontroller(100);
             
