@@ -12,7 +12,7 @@ public class GameMaster : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.R) && _gameOver == true)
         {
-            SceneManager.LoadScene(0, LoadSceneMode.Single);
+            SceneManager.LoadScene(1, LoadSceneMode.Single);
         }
     }
 
