@@ -53,7 +53,8 @@ public class Enemy : MonoBehaviour
     {
         
         if(other.tag == "Laser")
-        {          
+        {
+            _speed = 0;
             Destroy(other.gameObject);
             _playerScript.Scorecontroller(100);
 
@@ -71,9 +72,10 @@ public class Enemy : MonoBehaviour
                 player.Damage();       
             }
 
+            _speed = 0;
             _enemyDeathAnim.SetTrigger("OnEnemyDeath");
 
-            Destroy(this.gameObject,2.35f);
+            Destroy(this.gameObject, 2.35f);
         }   
     }
 
