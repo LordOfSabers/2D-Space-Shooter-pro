@@ -6,15 +6,17 @@ using UnityEngine.VFX;
 public class Enemy : MonoBehaviour
 {
 
+
     [SerializeField]
     private float _speed = 4;
+
     [SerializeField]
-    private GameObject _spawnManager;
+    private Player _playerScript;
 
     // Start is called before the first frame update
     void Start()
     {
-      
+        _playerScript = GameObject.Find("Player").GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -32,8 +34,10 @@ public class Enemy : MonoBehaviour
     {
         
         if(other.tag == "Laser")
-        {
+        {          
             Destroy(other.gameObject);
+            _playerScript.Scorecontroller(100);
+            
             Destroy(this.gameObject);
         }
         else if(other.tag == "Player")
