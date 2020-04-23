@@ -11,14 +11,15 @@ public class SpawnManager : MonoBehaviour
     private GameObject[] _powerups;
     [SerializeField]
     private GameObject _enemyContainer;
-    private bool _stopSpawning = false;
+    [SerializeField]
+    private bool _stopSpawning = true;
    
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnEnemyRoutine());
-        StartCoroutine(SpawnPowerupRoutine());
+        _stopSpawning = true;
+        
     }
     
     IEnumerator SpawnEnemyRoutine()
@@ -51,4 +52,13 @@ public class SpawnManager : MonoBehaviour
     {
         _stopSpawning = true;
     }
+    
+    public void StartWave()
+    {
+        _stopSpawning = false;
+        StartCoroutine(SpawnEnemyRoutine());
+        StartCoroutine(SpawnPowerupRoutine());
+    }
+
 }
+

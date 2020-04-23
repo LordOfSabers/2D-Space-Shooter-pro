@@ -663,7 +663,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Created by Patrick Gould @ GameDevHQ
+  m_Text: Created by Patrick Gould, Caleb Haney and Steve @ GameDevHQ
 --- !u!222 &1843947412
 CanvasRenderer:
   m_ObjectHideFlags: 0

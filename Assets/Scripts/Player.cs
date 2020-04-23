@@ -96,16 +96,16 @@ public class Player : MonoBehaviour
     //fire weapon Logic
     void FireLaser()
     {
-      
-        
+
+
         //check to see if power up is active
-        if(_isTripleShotActive == true)
+        if (_isTripleShotActive == true)
         {
             _ammoCount--; //Lower ammo amount by 1
             //Create 3 lasers
             Instantiate(_tripleShotPrefab, new Vector3(transform.position.x, transform.position.y + _laserOffset, 0), Quaternion.identity);
-        }        
-        else if(_isTripleShotActive == false)
+        }
+        else
         {
             _ammoCount--; //Lower ammo amount by 1
             //Create 1 laser

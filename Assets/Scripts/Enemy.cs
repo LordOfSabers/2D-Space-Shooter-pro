@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private Player _playerScript;
 
+    private PolygonCollider2D _collider2d;
     private Animator _enemyDeathAnim;
 
     // Start is called before the first frame update
@@ -32,10 +33,16 @@ public class Enemy : MonoBehaviour
        
         if(_enemyDeathAnim == null)
         {
-            Debug.LogError("Error Enemy::Animator IS Null");
+            Debug.LogError("Error Enemy::Animator is NULL");
         }
-        
 
+        _collider2d = GetComponent<PolygonCollider2D>();
+
+        if(_collider2d == null)
+        {
+            Debug.LogError("Error Enemy::PlygonCollider2D is NULL");
+        }
+            
     }
 
     // Update is called once per frame
@@ -52,17 +59,18 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         
-        if(other.tag == "Laser")
+        if(other.CompareTag("Laser"))
         {
             _speed = 0;
             Destroy(other.gameObject);
             _playerScript.Scorecontroller(100);
 
             _enemyDeathAnim.SetTrigger("OnEnemyDeath");
+            _collider2d.enabled = false;
 
             Destroy(this.gameObject, 2.35f);
         }
-        else if(other.tag == "Player")
+        else if(other.CompareTag("Player"))
         {
             
             Player player = other.transform.GetComponent<Player>();
@@ -74,18 +82,9 @@ public class Enemy : MonoBehaviour
 
             _speed = 0;
             _enemyDeathAnim.SetTrigger("OnEnemyDeath");
+            _collider2d.enabled = false;
 
             Destroy(this.gameObject, 2.35f);
         }   
-    }
-
-    private IEnumerator Destroy()
-    {
-        while (true)
-        {
-            _enemyDeathAnim.SetTrigger("OnEnemyDeath");
-            yield return new WaitForSeconds(3);
-            
-        }
     }
 }
